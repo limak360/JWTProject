@@ -1,8 +1,6 @@
-package com.kamilj.springjwtproject.dao;
-
+package com.kamilj.springjwtproject.model;
 
 public class User {
-
     String name;
 
     String password;
