@@ -1,6 +1,6 @@
 package com.kamilj.springjwtproject.services;
 
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import com.kamilj.springjwtproject.model.AuthenticationRequest;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -12,9 +12,10 @@ import java.util.ArrayList;
 @Service
 public class MyUserDetailsService implements UserDetailsService {
 
-
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        return new User("Kamil","foo", new ArrayList<>());
+
+        AuthenticationRequest request = new AuthenticationRequest();
+        return new User(request.getUsername(),request.getPassword(), new ArrayList<>());
     }
 }

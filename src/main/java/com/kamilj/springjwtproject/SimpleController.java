@@ -39,7 +39,6 @@ public class SimpleController {
             throw new Exception("incorrect username or password", e);
         }
 
-        System.out.println(authenticationRequest.getUsername());
         final UserDetails userDetails = myUserDetailsService.loadUserByUsername(authenticationRequest.getUsername());
         final String jwt = jwtTokenUtil.generateToken(userDetails);
 
