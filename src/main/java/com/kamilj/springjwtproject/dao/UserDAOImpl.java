@@ -2,31 +2,27 @@ package com.kamilj.springjwtproject.dao;
 
 
 import com.kamilj.springjwtproject.model.AuthenticationRequest;
+import com.kamilj.springjwtproject.model.User;
 import com.mongodb.*;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-
-public class UserDAOImpl implements UserDAO {
+@Repository
+public class UserDAOImpl
+        implements UserDAO {
 
     @Override
-    public void getUser() {
+    public User getUser() {
         //from database
-        // Creating a Mongo client
         MongoClient mongo = new MongoClient("localhost", 27017);
 
-        // Accessing the database
         MongoDatabase database = mongo.getDatabase("myDb");
 
+        MongoCollection mongoCollection = database.getCollection("User");
 
-        // Retieving a collection
-        MongoCollection<Document> collection = database.getCollection("myCollection");
-
-        //save in user class
-
-        Document myDoc = collection.find().first();
-        AuthenticationRequest request = new AuthenticationRequest();
-
+       return new User("Kamil","admin"); //(User) mongoCollection.find().first();
     }
 }

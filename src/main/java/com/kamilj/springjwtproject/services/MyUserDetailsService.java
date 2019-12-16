@@ -1,6 +1,8 @@
 package com.kamilj.springjwtproject.services;
 
+import com.kamilj.springjwtproject.dao.UserDAO;
 import com.kamilj.springjwtproject.model.AuthenticationRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -12,10 +14,12 @@ import java.util.ArrayList;
 @Service
 public class MyUserDetailsService implements UserDetailsService {
 
+    @Autowired
+    UserDAO user;
+
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
 
-        AuthenticationRequest request = new AuthenticationRequest();
-        return new User(request.getUsername(),request.getPassword(), new ArrayList<>());
+        return new User("Kamil","admin", new ArrayList<>());
     }
 }

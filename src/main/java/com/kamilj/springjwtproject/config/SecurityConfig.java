@@ -1,7 +1,6 @@
 package com.kamilj.springjwtproject.config;
 
 import com.kamilj.springjwtproject.filters.JwtRequestFilter;
-import com.kamilj.springjwtproject.services.MyUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;

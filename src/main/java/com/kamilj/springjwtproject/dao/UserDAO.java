@@ -1,5 +1,8 @@
 package com.kamilj.springjwtproject.dao;
 
+import com.kamilj.springjwtproject.model.User;
+
+
 public interface UserDAO {
-    void getUser();
+    User getUser();
 }
