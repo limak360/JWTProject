@@ -1,10 +1,7 @@
 package com.kamilj.springjwtproject.model;
 
-
-import org.springframework.stereotype.Repository;
-
-
 public class User {
+
     String username;
 
     String password;
